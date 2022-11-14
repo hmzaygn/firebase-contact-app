@@ -1,11 +1,9 @@
-import Form from "./components/Form";
-import Table from "./components/Table";
+import Main from "./pages/Main";
 
 function App() {
   return (
     <div className="App">
-      <Form />
-      <Table />
+      <Main />
     </div>
   );
 }
