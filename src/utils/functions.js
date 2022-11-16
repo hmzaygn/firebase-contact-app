@@ -1,6 +1,7 @@
 import { onValue, push, ref, remove, set, update } from "firebase/database";
 import { useState } from "react";
 import { useEffect } from "react";
+import Toastify from "./customToastify";
 import { db } from "./firebaseConfig";
 
 export const addUser = (contactInfo) => {
@@ -12,6 +13,8 @@ export const addUser = (contactInfo) => {
     phoneNumber: contactInfo.phoneNumber,
     gender: contactInfo.gender,
   });
+
+  Toastify("Added Successfully");
 };
 
 export const useFetch = () => {
@@ -35,12 +38,14 @@ export const useFetch = () => {
 
 export const deleteContact = (id) => {
   remove(ref(db, "contacts/" + id));
+  Toastify("Deleted Successfully");
 };
 
 export const updateContact = (contactInfo) => {
   const updates = {};
 
   updates["contacts/" + contactInfo.id] = contactInfo;
+  Toastify("Updated Successfully");
 
   return update(ref(db), updates);
 };

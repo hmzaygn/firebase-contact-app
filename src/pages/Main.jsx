@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import FormComponent from "../components/FormComponent";
 import Table from "../components/Table";
+
 import { addUser, updateContact } from "../utils/functions";
 
 const initialValues = {
@@ -39,6 +41,7 @@ const Main = () => {
         isAdd={isAdd}
       />
       <Table editContact={editContact} />
+      <ToastContainer />
     </div>
   );
 };
